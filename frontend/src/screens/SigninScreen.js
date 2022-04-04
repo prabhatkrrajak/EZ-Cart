@@ -10,7 +10,8 @@ export default function SigninScreen() {
   const [password, setPassword] = useState("");
 
   const location = useLocation();
-  const redirect = location.search ? "/"+location.search.split("=")[1] : "/";
+  const redirect = location.search ? location.search.split("=")[1] : "";
+  const redirectOriginal = "/" + redirect;
 
   const userSignin = useSelector((state) => state.userSignin);
   const { userInfo, loading, error } = userSignin;
@@ -24,9 +25,9 @@ export default function SigninScreen() {
   const navigate = useNavigate();
     useEffect(() => {
       if (userInfo) {
-        navigate(redirect);
+        navigate(redirectOriginal);
       }
-    }, [navigate, redirect, userInfo]);
+    }, [navigate, redirectOriginal, userInfo]);
 
   return (
     <div>
@@ -65,7 +66,10 @@ export default function SigninScreen() {
         <div>
           <label />
           <div>
-            New customer? <Link to="/register">Create your account</Link>
+          New customer?{' '}
+            <Link to={`/register?redirect=${redirect}`}>
+              Create your account
+            </Link>
           </div>
         </div>
       </form>
