@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { saveShippingAddress } from '../actions/cartActions';
@@ -10,9 +10,11 @@ export default function ShippingAddressScreen(props) {
   const cart = useSelector((state) => state.cart);
   const { shippingAddress } = cart;
   const navigate = useNavigate();
-  if (!userInfo) {
-    navigate('/signin');
-  }
+  useEffect(() => {
+    if (!userInfo) {
+        navigate('/signin');
+      }
+  }, [navigate, userInfo]);
   const [fullName, setFullName] = useState(shippingAddress.fullName);
   const [address, setAddress] = useState(shippingAddress.address);
   const [city, setCity] = useState(shippingAddress.city);
