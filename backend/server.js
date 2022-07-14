@@ -11,7 +11,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-mongoose.connect(process.env.MONGODB_URL || 'mongodb://localhost/amazona', {
+mongoose.connect(process.env.MONGODB_URL || 'mongodb+srv://prabhat:prabhat@cluster0.xxl0s.mongodb.net/?retryWrites=true&w=majority', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
@@ -33,6 +33,12 @@ app.use((err, req, res, next) => {
 });
 
 const port = process.env.PORT || 5000;
+
+//heroku
+if(process.env.NODE_ENV == "production"){
+  app.use(express.static("frontend/build"));
+}
+
 app.listen(port, () => {
   console.log(`Serve at http://localhost:${port}`);
 });
