@@ -22,10 +22,6 @@
     "start": "node backend/server.js",
     "heroku-postbuild":"NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/prabhatkrrajak/amazona-app.git"
-  },
   "author": "",
   "license": "ISC",
   "bugs": {
