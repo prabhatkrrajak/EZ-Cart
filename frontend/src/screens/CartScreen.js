@@ -32,14 +32,14 @@ export default function CartScreen(props) {
   };
     return (
       <div className="row top">
-      <div className="col-2">
-        <h1>Shopping Cart</h1>
+      <div className="col-2 ">
+        <h1 className='container'>Shopping Cart</h1>
         {cartItems.length === 0 ? (
           <MessageBox>
             Cart is empty. <Link to="/">Go Shopping</Link>
           </MessageBox>
         ) : (
-          <ul>
+          <ul className='container'>
             {cartItems.map((item) => (
               <li key={item.product}>
               <div className="row">
@@ -97,7 +97,7 @@ export default function CartScreen(props) {
             <button
               type="button"
               onClick={checkoutHandler}
-              className="primary block"
+              className="primary block txtwhite"
               disabled={cartItems.length === 0}
             >
               Proceed to Checkout

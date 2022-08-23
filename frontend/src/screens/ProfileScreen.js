@@ -101,7 +101,7 @@ export default function ProfileScreen() {
             </div>
             <div>
               <label />
-              <button className="primary" type="submit">
+              <button className="primary txtwhite" type="submit">
                 Update
               </button>
             </div>

@@ -33,11 +33,11 @@ function App() {
       <header className="row">
         <div>
           <Link className="brand" to="/">
-            amazona
+            EZCart
           </Link>
         </div>
         <div>
-          <Link to="/cart">
+          <Link to="/cart"><i className="fa fa-shopping-cart cartlogo"></i>
               Cart
               {cartItems.length > 0 && (
                 <span className="badge">{cartItems.length}</span>
@@ -63,9 +63,10 @@ function App() {
                 </ul>
               </div>
             ) : (
-              <Link to="/signin">Sign In</Link>
+              <Link to="/signin" className='sgnin'>Sign In</Link>
             )}
         </div>
+
       </header>
       <main>
       <Routes>
@@ -83,7 +84,7 @@ function App() {
           <Route path="/" element={<HomeScreen/>} exact></Route>
       </Routes>
       </main>
-      <footer className="row center">All right reserved</footer>
+      <footer className="row center">All rights reserved under  &nbsp; <span className='greenTxt'>EZTech Pvt. Ltd.</span> </footer>
     </div>
     </BrowserRouter>
   );
